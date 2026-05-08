@@ -1,0 +1,47 @@
+{
+  "name": "study-cat",
+  "version": "0.1.0",
+  "description": "데스크톱 오버레이 공부 타이머 — 고양이가 함께 공부합니다",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-icon": "electron build-icon.js",
+    "build": "electron build-icon.js && electron-packager . StudyCat --platform=win32 --arch=x64 --icon=assets/cat/icon.ico --out=dist --overwrite"
+  },
+  "author": "chungeeee",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0",
+    "electron-packager": "^17.1.2",
+    "png-to-ico": "^3.0.1"
+  },
+  "build": {
+    "appId": "com.chungeeee.studycat",
+    "productName": "StudyCat",
+    "copyright": "Copyright © 2026 chungeeee",
+    "files": [
+      "main.js",
+      "preload.js",
+      "preload-cat.js",
+      "renderer/**/*",
+      "cat-window/**/*",
+      "assets/**/*"
+    ],
+    "electronLanguages": ["ko", "en-US"],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/cat/icon.ico",
+      "legalTrademarks": "StudyCat",
+      "publisherName": "chungeeee"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false,
+      "differentialPackage": false,
+      "warningsAsErrors": false,
+      "include": "build/installer.nsh"
+    }
+  }
+}

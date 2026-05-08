@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>StudyCat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="titlebar">
+      <div class="drag-area">🐾 StudyCat</div>
+      <div class="window-buttons">
+        <button id="btn-pin" title="항상 위" class="active">📌</button>
+        <button id="btn-cat-toggle" title="고양이 숨기기 (Alt+K)" class="active">🐈</button>
+        <button id="btn-clickthrough" title="클릭 통과 (Alt+C)">👻</button>
+        <button id="btn-hide" title="최소화 (Alt+H)">─</button>
+        <button id="btn-quit" title="종료">×</button>
+      </div>
+    </div>
+
+    <div id="timer-display">
+      <div class="time" id="time">25:00</div>
+      <div class="phase" id="phase">준비됨</div>
+    </div>
+
+    <div id="mode-tabs">
+      <button class="tab active" data-mode="pomodoro">뽀모도로</button>
+      <button class="tab" data-mode="countdown">카운트다운</button>
+      <button class="tab" data-mode="stopwatch">스톱워치</button>
+    </div>
+
+    <div id="settings">
+      <div class="settings-pomodoro setting-panel active">
+        <label>공부 <input type="number" id="pomo-work" value="25" min="1" max="180" /> 분</label>
+        <label>휴식 <input type="number" id="pomo-break" value="5" min="1" max="60" /> 분</label>
+      </div>
+      <div class="settings-countdown setting-panel">
+        <label><input type="number" id="cd-hour" value="0" min="0" max="23" /> 시간</label>
+        <label><input type="number" id="cd-min" value="30" min="0" max="59" /> 분</label>
+      </div>
+      <div class="settings-stopwatch setting-panel">
+        <span class="hint">0부터 자유롭게 측정합니다</span>
+      </div>
+    </div>
+
+    <div id="controls">
+      <button id="btn-start">시작</button>
+      <button id="btn-pause" disabled>일시정지</button>
+      <button id="btn-reset">리셋</button>
+    </div>
+
+    <div id="footer-row">
+      <label class="size-label">고양이 크기
+        <input type="range" id="cat-size" min="60" max="180" value="100" step="10" />
+        <span id="cat-size-val">100</span>
+      </label>
+    </div>
+  </div>
+
+  <script src="timer.js"></script>
+</body>
+</html>
